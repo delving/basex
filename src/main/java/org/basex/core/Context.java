@@ -256,7 +256,7 @@ public final class Context {
    */
   public void register(final Progress pr) {
     // administrators will not be affected by the timeout
-    if(!user.has(Perm.ADMIN)) pr.startTimeout(mprop.num(MainProp.TIMEOUT));
+    // if(!user.has(Perm.ADMIN)) pr.startTimeout(mprop.num(MainProp.TIMEOUT));
 
     // get touched databases
     StringList sl = new StringList();
@@ -269,7 +269,7 @@ public final class Context {
         if(data != null && sl.get(d).isEmpty()) sl.set(d, data.meta.name);
       }
     }
-    locks.acquire(pr, sl);
+    // locks.acquire(pr, sl);
   }
 
   /**
@@ -277,8 +277,8 @@ public final class Context {
    * @param pr process
    */
   public void unregister(final Progress pr) {
-    locks.release(pr);
-    pr.stopTimeout();
+    // locks.release(pr);
+    // pr.stopTimeout();
   }
 
   /**
